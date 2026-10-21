@@ -1,3 +1,14 @@
 *.swp
 *.yaml.*
 .env
+
+# app config dirs
+jellyfin/config/
+radarr/config/
+sonarr/config/
+seerr/config/
+audiobook-shelf/config/
+jellyfin/cache/
+audiobook-shelf/metadata/
+bibliarr/config/
+bibliarr/data/

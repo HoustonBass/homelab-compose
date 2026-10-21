@@ -8,8 +8,8 @@ services:
       - 8096:8096/tcp
       - 7359:7359/udp
     volumes:
-      - /media/hdd1/jellyfin/config:/config
-      - /media/hdd1/jellyfin/cache:/cache
+      - ./config:/config
+      - ./cache:/cache
       - /media/hdd1/Media:/media
       - /media/hdd1/jellyfin/tmp:/tmp
       # Optional - extra fonts to be used during transcoding with subtitle burn-in
