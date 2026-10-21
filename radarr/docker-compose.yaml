@@ -8,7 +8,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /media/hdd1/radarr/data:/config
+      - ./config:/config
       # - /home/homelab/compose/radarr/data:/config
       - /media/hdd1/Media/Movies:/movies #optional
       - /media/hdd1/radarr/downloads:/downloads
