@@ -10,3 +10,5 @@ seerr/config/
 audiobook-shelf/config/
 jellyfin/cache/
 audiobook-shelf/metadata/
+bibliarr/config/
+bibliarr/data/
