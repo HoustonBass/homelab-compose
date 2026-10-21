@@ -1,0 +1,13 @@
+services:
+ bibliarr:
+    build: /home/homelab/repos/seerr-dashboard
+    container_name: bibliarr
+    environment:
+      - CONFIG_DIR=/config
+      - DATA_DIR=/data
+    volumes:
+      - /home/homelab/repos/seerr-dashboard/config:/config
+      - /home/homelab/repos/seerr-dashboard/data:/data
+    ports:
+      - 5001:5001
+    restart: unless-stopped
