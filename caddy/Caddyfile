@@ -1,0 +1,66 @@
+{
+	auto_https disable_redirects
+	# For LAN-only hostnames like *.home.arpa, use Caddy's internal CA.
+	# If you later switch to a real public domain, remove this and use public DNS.
+	local_certs
+}
+
+# homepage
+home.lab {
+	reverse_proxy 127.0.0.1:8081
+}
+
+audiobook.home.lab {
+	reverse_proxy 127.0.0.1:13378
+}
+
+# Immich
+immich.home.lab {
+	reverse_proxy 127.0.0.1:2283
+}
+
+jellyfin.home.lab {
+	reverse_proxy 127.0.0.1:8096
+}
+
+# bibliarr 
+bibliarr.home.lab {
+	reverse_proxy 127.0.0.1:5001
+}
+
+# Pi-hole web UI
+pihole.home.lab {
+	reverse_proxy 127.0.0.1:8080
+}
+
+# Portainer (use HTTP port to avoid local TLS backend issues)
+portainer.home.lab {
+	reverse_proxy 127.0.0.1:9000
+}
+
+# Radarr
+radarr.home.lab {
+	reverse_proxy 127.0.0.1:7878
+}
+
+# Sonarr
+sonarr.home.lab {
+	reverse_proxy 127.0.0.1:8989
+}
+
+seerr.home.lab {
+	reverse_proxy 127.0.0.1:5055
+}
+
+http://home.lab/cert {
+    # Set the headers so mobile devices recognize it as a certificate install file
+    header Content-Type "application/x-x509-ca-cert"
+    header Content-Disposition "attachment; filename=homelab-root.crt"
+    
+    # Serve the exact root file straight from Caddy's internal storage path
+    file_server {
+        root /data/caddy/pki/authorities/local
+    }
+    rewrite * /root.crt
+}
+

@@ -1,0 +1,17 @@
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      # - /home/homelab/compose/sonarr/data:/config      
+      - /media/hdd1/sonarr/data:/config      
+      - /media/hdd1/Media/TV:/tv #optional
+      - /media/hdd1/sonarr/downloads:/downloads
+      # - /home/homelab/compose/sonarr/downloads:/downloads #optional
+    ports:
+      - 8989:8989
+    restart: unless-stopped

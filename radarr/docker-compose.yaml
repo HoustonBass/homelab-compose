@@ -1,0 +1,19 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /media/hdd1/radarr/data:/config
+      # - /home/homelab/compose/radarr/data:/config
+      - /media/hdd1/Media/Movies:/movies #optional
+      - /media/hdd1/radarr/downloads:/downloads
+      # - /home/homelab/compose/radarr/downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
