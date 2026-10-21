@@ -8,3 +8,5 @@ radarr/config/
 sonarr/config/
 seerr/config/
 audiobook-shelf/config/
+jellyfin/cache/
+audiobook-shelf/metadata/
